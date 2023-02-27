@@ -125,9 +125,17 @@ on TR.opgaveNr = O.opgaveNr
 inner join Medarbejder M
 on TR.medarbejderNr = M.medarbejderNr
 where @MNavn = M.navn
+go;
+
+Create proc MedarbejderInfo2
+@MNavn VARCHAR(30)
+AS
+select *
+from OpgaveTidsregistreringer
+where @MNavn = navn
 
 
-exec MedarbejderInfo 'Jennifer Lawrence'
+exec MedarbejderInfo2 'Jennifer Lawrence'
 
 -- Opgave 10
 drop proc AntalTimer
